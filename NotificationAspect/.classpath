@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="monitor/aspect/CallCenterAspect.aj|monitor/aspect/MarkAspect.aj|monitor/aspect/SetAspect.aj|monitor/aj/CallCenterAspect.aj|monitor/aj/MarkAspect.aj|monitor/aj/SetAspect.aj|sl/aspects/MethodGlobal.aj|sl/aspects/CountGlobal.aj|sl/aspects/PingGlobal.aj|sl/aspects/AttributeGlobal.aj" kind="src" path="src"/>
+	<classpathentry kind="src" path="unittest"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.2.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="lib/MMTClientConnector.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,8 +1,17 @@
 Notification_Module
 ===================
 
+Latest version: NotificationAspect 2.1.0
+
++ Log filter global and local
++ added source code
++ removed zip file
+
+
+History:
 Latest version: NotificationAspect 2.0.0.zip
 Release changes:
+
 * Removed configuration file: notify.json
 * Added configuration functions instead:
 	+ NotificationAspect.connectMonitoringTool("http://localhost:4567/");
