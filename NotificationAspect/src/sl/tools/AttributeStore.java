@@ -45,7 +45,7 @@ public class AttributeStore {
 	}
 
 	public ArrayList<MMTFieldValueHeader> to_remote_log() {
-		ArrayList<MMTFieldValueHeader> ar = new ArrayList<>();
+		ArrayList<MMTFieldValueHeader> ar = new ArrayList();
 		for(Attribute a: attributes) add(ar, a.name, a.value);
 		return ar; 
 	}
