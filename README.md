@@ -3,6 +3,11 @@ Notification_Module
 
 
 Latest version: 
+NotificationAspect 2.2.1
+
+* Removed dead global aspect files
+
+
 NotificationAspect 2.2.0
 
 * Downgraded to java 6 (a.k.a Java 1.6 )
