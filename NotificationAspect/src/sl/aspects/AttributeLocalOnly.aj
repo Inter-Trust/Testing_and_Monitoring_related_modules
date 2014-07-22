@@ -1,6 +1,6 @@
 package sl.aspects;
 
-import org.aspectj.lang.JoinPoint;
+//import org.aspectj.lang.JoinPoint;
 
 import sl.MonitorOnly;
 import sl.tools.AttributeStore;
@@ -28,6 +28,7 @@ public aspect AttributeLocalOnly extends Base {
 
 	before(MonitorOnly m) : probe(m) {
 		AttributeStore as = Log.getAttributeStore(m.mask());
-		Log.i("Attribute changed", thisJoinPoint, as);
+//		Log.i("Attribute changed", thisJoinPoint, as);
+		Log.log_attribute("Attribute changed", thisJoinPoint, as);
 	}	
 }

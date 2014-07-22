@@ -1,34 +1,31 @@
 Notification_Module
 ===================
 
-
 Latest version: 
-NotificationAspect 2.2.1
 
+# NotificationAspect 2.2.2
+* Added missing log mask handling to regular aspects
+
+Previous versions:
+------------------
+
+# NotificationAspect 2.2.1
 * Removed dead global aspect files
 
 
-NotificationAspect 2.2.0
-
+# NotificationAspect 2.2.0
 * Downgraded to java 6 (a.k.a Java 1.6 )
 * Added source of TestAspect
 * NotifAndTest.jar contains bytecode for both aspects
 
-History:
---------
-
-NotificationAspect 2.1.0
-
+# NotificationAspect 2.1.0
 + Log filter global and local
 + added source code
 + removed zip file
 
 
-
-NotificationAspect 2.0.0.zip
-
+# NotificationAspect 2.0.0.zip
 Release changes:
-
 * Removed configuration file: notify.json
 * Added configuration functions instead:
 	+ NotificationAspect.connectMonitoringTool("http://localhost:4567/");

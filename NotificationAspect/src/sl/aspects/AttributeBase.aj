@@ -1,6 +1,7 @@
 package sl.aspects;
 import org.aspectj.lang.JoinPoint;
 
+import sl.tools.AttributeStore;
 import sl.tools.Log;
 
 
@@ -9,6 +10,7 @@ public abstract aspect AttributeBase extends Base {
 	
 	before() : probe() {
 		JoinPoint a = thisJoinPoint;
-		Log.log_attribute("Attribute changed", a);
+		AttributeStore as = Log.getAttributeStore(Log.getLogMask());
+		Log.log_attribute("Attribute changed", thisJoinPoint, as);
 	}
 }

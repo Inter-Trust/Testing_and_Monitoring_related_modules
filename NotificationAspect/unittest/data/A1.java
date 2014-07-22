@@ -13,6 +13,9 @@ public class A1 {
 	public int params(String str, int val)  { return 12; }
 	
 	@Monitor
+	public int params2(String str, int val)  { return 12; }
+	
+	@Monitor
 	public void outer() throws Exception { inner();	}
 	
 	public void change_variables() throws Exception { 

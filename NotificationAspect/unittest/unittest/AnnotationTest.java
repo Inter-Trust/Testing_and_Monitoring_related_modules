@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import sl.Const;
 import sl.NotificationAspect;
 //import sl.aspects.AttributeGlobal;
 //import sl.aspects.CountGlobal;
@@ -144,8 +145,9 @@ public class AnnotationTest {
 
 	@Test
 	public void monitor_method_attribute_no_more() throws Exception {
-		NotificationAspect.log_only(all ^ source_line ^ return_value
-				^ method_params);
+		//NotificationAspect.log_only(all);
+		NotificationAspect.log_only(all ^ source_line ^ return_value^ method_params);
+		System.out.println("monitor_method_attribute_no_more");
 		A1 a = new A1();
 		try {
 			a.outer(); // should produce exit_status:fail
@@ -153,6 +155,9 @@ public class AnnotationTest {
 		}
 		a.ping(); //
 		a.params("hello", 12);
+		NotificationAspect.log_only(all ^ source_line ^ return_value^ method_params);
+		a.params2("hello", 12);
+		NotificationAspect.log_only(all);
 		a.change_variables(); // not monitored, should generate no log
 		non_annotated_code(); // should produce no logs
 		int i = 0;
@@ -162,9 +167,12 @@ public class AnnotationTest {
 		assertException(i++, "parameters:[hello, 12]",
 				"java.lang.Exception: parameters:[hello, 12] not found");
 		assertLog(i++, "return_value:12");
+		assertException(i++, "parameters:[hello, 12]",
+				"java.lang.Exception: parameters:[hello, 12] not found");	
+		i++;
 		assertLog(i++,
 				"msg:Attribute changed, attribute_value:1, name:data.A1.variableA");
-		assertEquals(log.size(), 6);
+		assertEquals(log.size(), 8);
 	}
 
 	@Test
@@ -205,12 +213,23 @@ public class AnnotationTest {
 		A2 a = new A2();
 		a.outer();
 		a.taint();
+
 		non_annotated_code();
-		assertLog(0, "msg:Method Enter, name:data.A2.taint");
-		assertLog(1, "msg:Method Enter, name:data.A2.inner");
-		assertLog(2, "msg:Method Leave, name:data.A2.inner");
-		assertLog(3, "msg:Method Leave, name:data.A2.taint");
-		assertEquals(log.size(), 4);
+		NotificationAspect.log_only(all ^ name);
+		a.taint();
+		
+		int i = 0;
+		assertLog(i++, "msg:Method Enter, name:data.A2.taint");
+		assertLog(i++, "msg:Method Enter, name:data.A2.inner");
+		assertLog(i++, "msg:Method Leave, name:data.A2.inner");
+		assertLog(i++, "msg:Method Leave, name:data.A2.taint");		
+		
+		assertException(i++, "msg:Method Enter, name:data.A2.taint", "java.lang.Exception: name:data.A2.taint not found");
+		assertException(i++, "msg:Method Enter, name:data.A2.inner", "java.lang.Exception: name:data.A2.inner not found");
+		assertException(i++, "msg:Method Leave, name:data.A2.inner", "java.lang.Exception: name:data.A2.inner not found");
+		assertException(i++, "msg:Method Leave, name:data.A2.taint", "java.lang.Exception: name:data.A2.taint not found");
+				
+		assertEquals(log.size(), 8);		
 	}
 
 	@Test
@@ -239,18 +258,23 @@ public class AnnotationTest {
 		a.outer();
 		a.change_variables();
 		non_annotated_code();
-
+		NotificationAspect.log_only(all^attribute_value);
+		a.change_variables();
+		
 		int i = 0;
 		assertLog(i++, "msg:Method Enter, name:data.A3.ping");
 		assertLog(i++, "msg:Method Leave, exit_status:success");
 		assertLog(i++, "msg:Method Enter, name:data.A3.outer");
-		assertLog(i++,
-				"msg:Method Leave, exit_status:success, name:data.A3.outer");
+		assertLog(i++, "msg:Method Leave, exit_status:success, name:data.A3.outer");
 		assertLog(i++, "msg:Method Enter, name:data.A3.change_variables");
-		assertLog(i++,
-				"msg:Attribute changed, attribute_value:1, name:data.A3.variableA");
+		assertLog(i++, "msg:Attribute changed, attribute_value:1, name:data.A3.variableA");
 		assertLog(i++, "msg:Method Leave, name:data.A3.change_variables");
-		assertEquals(log.size(), i);
+		
+		assertLog(i++, "msg:Method Enter, name:data.A3.change_variables");
+		assertException(i++, "msg:Attribute changed, attribute_value:1, name:data.A3.variableA", "java.lang.Exception: attribute_value:1 not found");
+		assertLog(i++, "msg:Method Leave, name:data.A3.change_variables");
+		
+		assertEquals(log.size(), 10);
 	}
 
 	@Test

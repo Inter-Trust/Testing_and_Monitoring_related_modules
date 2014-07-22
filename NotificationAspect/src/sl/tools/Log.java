@@ -56,8 +56,8 @@ public class Log {
 		return null;
 	}
 	
-	public static void log_attribute(String msg, JoinPoint jp) {
-		AttributeStore as = Log.getAttributeStore();
+	public static void log_attribute(String msg, JoinPoint jp, AttributeStore as) {
+		//AttributeStore as = Log.getAttributeStore();
 		as.push_back(Const.attribute_value, get_attribute_value(jp));
 		i(msg, jp, as);
 	}
@@ -112,6 +112,7 @@ public class Log {
 	}
 	
 	public static void setLogMask(long mask) { 	log_mask = mask; }
+	public static long getLogMask() {return log_mask;}
 	
 	public static AttributeStore getAttributeStore() {	return getAttributeStore(log_mask); 	}
 	public static AttributeStore getAttributeStore(long mask) {

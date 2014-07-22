@@ -13,7 +13,7 @@ public class MethodDuration {
 	long mask;
 
 	public MethodDuration(JoinPoint jp) {
-		init(jp, Const.all);
+		init(jp, Log.getLogMask());
 	}
 	
 	public MethodDuration(JoinPoint jp, long log_mask) {
