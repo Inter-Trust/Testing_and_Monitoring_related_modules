@@ -7,7 +7,6 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {
 		NotificationModule.connectMonitoringTool("http://localhost:4567", 123);
-//		NotificationModule.connectMonitoringTool("http://192.168.5.100:4567", 123);
 		NotificationModule.enable_log_to_stdout(true);
 		TestInitModule.startRestServer(8081);
 
