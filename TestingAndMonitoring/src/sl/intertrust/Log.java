@@ -116,6 +116,11 @@ public class Log {
 		as.push_back(Const.return_value, args[0]);
 	}
 	
+	public static LogBuffer log_to_buffer() {
+		log_buffer = new LogBuffer();
+		return log_buffer;
+	}
+	
 	static void setLogMask(long mask) { log_mask = mask; }
 	public static long getLogMask() { return log_mask; }
 	

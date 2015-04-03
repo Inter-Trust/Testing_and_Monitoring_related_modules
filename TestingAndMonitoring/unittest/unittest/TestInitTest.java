@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import data.A7;
 import sl.intertrust.Counter;
-//import sl.intertrust.Log;
+import sl.intertrust.Log;
 import sl.intertrust.LogBuffer;
 import sl.intertrust.TestInit;
 import sl.intertrust.TestInitModule;
@@ -18,8 +18,7 @@ public class TestInitTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-//		log = Log.log_to_buffer();
-		log = new LogBuffer();
+		log = Log.log_to_buffer();
 		NotificationModule.enable_log_to_stdout(true);
 		TestInitModule.startRestServer(8080);
 	}

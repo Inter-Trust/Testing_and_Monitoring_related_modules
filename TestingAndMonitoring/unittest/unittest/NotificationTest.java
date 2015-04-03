@@ -13,14 +13,9 @@ import org.junit.Test;
 
 import sl.intertrust.AttributeStore;
 import sl.intertrust.Counter;
-//import sl.intertrust.Log;
+import sl.intertrust.Log;
 import sl.intertrust.LogBuffer;
 import sl.intertrust.NotificationModule;
-//import sl.aspects.AttributeGlobal;
-//import sl.aspects.CountGlobal;
-//import sl.aspects.MethodGlobal;
-//import sl.aspects.PingGlobal;
-//import sl.tools.TestInit;
 
 import data.A1;
 import data.A2;
@@ -37,8 +32,7 @@ public class NotificationTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-//		log = Log.log_to_buffer();
-		log = new LogBuffer();
+		log = Log.log_to_buffer();
 		NotificationModule.enable_log_to_stdout(true);
 		NotificationModule.connectMonitoringTool("http://localhost:4567/", 54321);
 		// NotificationModule.log_only(all);
@@ -198,12 +192,12 @@ public class NotificationTest {
 		non_annotated_code(); // should produce no logs
 		int i = 0;
 		assertLog(i++, "msg:Method Enter, name:data.MaskTest.outer, thread_name:main");
-		assertLog(i++, "msg:Method Leave, exit_status:success, return_value:null, name:data.MaskTest.outer, thread_name:main, thread_count:2");
+		assertLog(i++, "msg:Method Leave, exit_status:success, return_value:null, name:data.MaskTest.outer, thread_name:main, thread_count:3");
 		assertLog(i++, "msg:Method Enter, name:data.MaskTest.params");
 		assertLog(i++, "msg:Method Leave, name:data.MaskTest.params");
-		assertLog(i++, "msg:Method Enter , parameters:[hello, 14]");//, name:data.MaskTest.inner2, thread_name:main, thread_count:2");
-		assertLog(i++, "msg:Method Leave, exit_status:success, return_value:null, name:data.MaskTest.inner2, source:MaskTest.java:26, thread_name:main, thread_count:2");
-		assertLog(i++, "msg:Attribute changed, attribute_value:1, name:data.MaskTest.variableA, thread_name:main, thread_count:2");
+		assertLog(i++, "msg:Method Enter , parameters:[hello, 14]");
+		assertLog(i++, "msg:Method Leave, exit_status:success, return_value:null, name:data.MaskTest.inner2, source:MaskTest.java:29, thread_name:main, thread_count:3");
+		assertLog(i++, "msg:Attribute changed, attribute_value:1, name:data.MaskTest.variableA, thread_name:main, thread_count:3");
 		assertException(i++, "msg:Attribute changed, attribute_value:2, name:data.MaskTest.variableB", "java.lang.Exception: attribute_value:2 not found");
 		assertEquals(log.size(), 8);
 	}
