@@ -8,11 +8,12 @@ public class NotificationModule {
 		Log.connect_remote(url, serviceID);
 	}
 	
-	/**	 Use values from sl.Const to construct mask.
-	 To log everything but method parameters and source lines, use xor: 
-			mask = all ^ method_params ^ source_lines
-	 To log only source_line and object name: 
-	 		mask = source_line | name */
+/**	Use values from sl.Const to construct mask.
+ *  To log everything but method parameters and source lines, use xor: 
+ *     mask = all ^ method_params ^ source_lines
+ *  To log only source_line and object name: 
+ *     mask = source_line | name
+ */
 	public static void log_only(long mask) {
 		Log.setLogMask(mask);
 	}

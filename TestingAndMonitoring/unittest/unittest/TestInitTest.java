@@ -3,7 +3,6 @@ package unittest;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import data.A7;
 import sl.intertrust.Counter;
 import sl.intertrust.Log;
@@ -29,12 +28,6 @@ public class TestInitTest {
 		Counter.clear();
 		}
 	
-//	@After
-//	public void tearDown() throws Exception {
-//		enable_globals(false);
-//		System.out.println("Test End"); 
-//	}
-	
 	@Test
 	public void basic_test() {
 		System.out.println("hello");
@@ -49,15 +42,4 @@ public class TestInitTest {
 		ca.ready();
 		//assertLog(1, "msg:A7 reset");
 	}
-	
-//	private void assertLog(int line, String attrs) {
-//		String[] a = attrs.split(",");
-//		try {
-//			AttributeStore logline = log.Entry(line);
-//			for(String i: a) logline = logline.Has(i.trim());
-//		} catch(Exception e) {
-//			System.err.println(e);
-//			fail();
-//		}
-//	}	
 }

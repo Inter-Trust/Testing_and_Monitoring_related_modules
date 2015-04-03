@@ -1,7 +1,6 @@
 package sl.intertrust.aspects;
 
 import org.aspectj.lang.JoinPoint;
-
 import sl.intertrust.Counter;
 
 public abstract aspect CountBase extends Base {

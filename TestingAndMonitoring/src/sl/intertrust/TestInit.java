@@ -44,9 +44,7 @@ public class TestInit {
 	}
 	
 	private String get_method(Object obj, Funcs func) {
-//System.out.println("get method of class "+obj.getClass().getName());
 		Annotation[] ann = obj.getClass().getAnnotations();
-//System.out.println("Number of annotations " + ann.length);
 		for(Annotation a: ann) {
 			if(!(a instanceof Testing)) continue;
 			Testing o = (Testing) a;
@@ -68,7 +66,6 @@ public class TestInit {
 	
 	public boolean hasAnnotation(Object obj) {
 		Annotation[] ann = obj.getClass().getAnnotations();
-		// System.out.println("Number of annotations " + ann.length);
 		for(Annotation a: ann) 
 			if(a instanceof Testing) return true; 
 		return false;

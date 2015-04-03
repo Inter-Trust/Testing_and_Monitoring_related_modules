@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;main.Helper&apos; to &apos;MainHelper&apos;&#x0D;&#x0A;- Original project: &apos;TestingAndMonitoring&apos;&#x0D;&#x0A;- Original element: &apos;main.Helper&apos;&#x0D;&#x0A;- Renamed element: &apos;main.MainHelper&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Helper&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;main{Helper.java[Helper" matchStrategy="1" name="MainHelper" qualified="false" references="true" similarDeclarations="false" stamp="1428062585531" textual="false" version="1.0"/>
+</session>

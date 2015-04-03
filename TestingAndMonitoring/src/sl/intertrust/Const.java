@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 // Can be used with "import static" to skip namespace
 public class Const {
-	// 64 bits ought to be enough for everyone!
+	// 64 bits ought to be enough for everyone! ;)
 	private static HashMap<Long, String> map = init();
 	public static final long
 		attribute_value = 1<<0,

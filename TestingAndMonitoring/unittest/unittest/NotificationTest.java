@@ -5,18 +5,15 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import sl.intertrust.AttributeStore;
 import sl.intertrust.Counter;
 import sl.intertrust.Log;
 import sl.intertrust.LogBuffer;
 import sl.intertrust.NotificationModule;
-
 import data.A1;
 import data.A2;
 import data.A2Masked;
@@ -186,7 +183,6 @@ public class NotificationTest {
 	public void monitor_mask() throws Exception {
 		MaskTest a = new MaskTest();
 		a.outer();
-		// a.ping(); //
 		a.params("hello", 12);
 		a.change_variables(); // not monitored, should generate no log
 		non_annotated_code(); // should produce no logs

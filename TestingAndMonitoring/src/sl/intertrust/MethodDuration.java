@@ -2,7 +2,6 @@ package sl.intertrust;
 
 
 import java.util.Locale;
-
 import org.aspectj.lang.JoinPoint;
 
 

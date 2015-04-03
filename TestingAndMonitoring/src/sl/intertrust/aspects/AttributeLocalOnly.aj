@@ -5,9 +5,6 @@ import sl.intertrust.Log;
 import sl.intertrust.annotations.MonitorOnly;
 
 public aspect AttributeLocalOnly extends Base {
-//	pointcut classes(MonitorOnly m): set(* *) && within(@MonitorOnly *) && @annotation(m); // All attribute setters within @Monitor annotated class
-//	pointcut attributes(MonitorOnly m) : set(@MonitorOnly * *) && @annotation(m);
-//	pointcut probe(MonitorOnly m): (attributes(m) && classes(m)) && scope();
 	// All attribute setters within @Monitor annotated class
 	/** Usage:
 	 * @MonitorOnly(7) 

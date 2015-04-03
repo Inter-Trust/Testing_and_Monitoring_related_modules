@@ -7,7 +7,7 @@ import java.util.WeakHashMap;
 // Counts number of object instances/class. 
 // Garbage collected objects are automatically removed.
 public class Counter {
-	// Each type is tracked by a different hashmap
+	// Each type is tracked by a different HashMap
 	@SuppressWarnings("serial")
 	static class Map extends HashMap<String, WeakHashMap<Object, Integer>> {
 		public void add(Object o, String class_id) {
@@ -23,7 +23,6 @@ public class Counter {
 				sum += n;
 				as.push_back(Const.class_id, key);
 				as.push_back(Const.class_instances, n);
-				//as.push_back(String.format("count(%s)", key), n);
 			}
 			if(sum>0) as.push_back(Const.tracked_objects, sum);
 		}

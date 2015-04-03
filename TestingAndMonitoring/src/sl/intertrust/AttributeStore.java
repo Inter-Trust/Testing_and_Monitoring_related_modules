@@ -1,8 +1,6 @@
 package sl.intertrust;
 
 import java.util.ArrayList;
-
-
 import com.montimage.mmt.client.connector.GenericFieldValueHeader;
 import com.montimage.mmt.client.connector.MMTFieldValueHeader;
 

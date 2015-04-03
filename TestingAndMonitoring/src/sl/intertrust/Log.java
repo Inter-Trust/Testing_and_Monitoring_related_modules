@@ -9,7 +9,7 @@ public class Log {
 	static LogBuffer log_buffer;
 	static boolean stdout_enabled = false;
 	static long log_mask = Const.all;
-	static RemoteLogger remote = null; //connect_remote_logger();
+	static RemoteLogger remote = null;
 	
 	private static RemoteLogger connect_remote_logger(String url, int serviceID) {
 		if(url==null) { 
@@ -34,7 +34,6 @@ public class Log {
 	
 	// This is the second step that might need to be called (for debugging).
 	static void enable_log_to_stdout(boolean enable) { stdout_enabled = enable; }
-	
 
 	private static void i(String eventName, String msg) { i(eventName, msg, null); }
     private static void i(String eventName, String msg, JoinPoint jp) { i(eventName, msg, jp, Log.getAttributeStore());	}
@@ -47,7 +46,6 @@ public class Log {
 		}
 		as.push_front(Const.log_msg, msg);
 		if(log_buffer != null) log_buffer.log(as);
-//TODO : ... should be 	"Log" for Test Init log, "NotifType" for Notification log	
 		if(remote != null) remote.send(as, eventName);
 	}
 	
@@ -65,9 +63,9 @@ public class Log {
 	public static void notif_method_leave (JoinPoint jp, AttributeStore as) {
         															  i("Notif", "Method Leave", jp, as);
 	}
-	public static void notif_testinit(String msg)                  {  i("Test Init Log", msg); }
+	public static void notif_testinit(String msg)                  {  i("TILog", msg); }
 	
-	public static void notif_testinit(String msg, JoinPoint jp)    {  i("Test Init Log", msg, jp); }
+	public static void notif_testinit(String msg, JoinPoint jp)    {  i("TILog", msg, jp); }
 	
 	static String get_attribute_value(JoinPoint a) {
 		Object[] args = a.getArgs();
@@ -85,15 +83,8 @@ public class Log {
 	
 	static void add_source_location(AttributeStore as, JoinPoint jp) {
 		Signature sig = jp.getSignature();
-//		String module = def(sig.getDeclaringTypeName());
-//		String name = def(sig.getName());
-//		as.push_back(Const.name, module+"."+name);
 		as.push_back(Const.name, def(sig.getDeclaringTypeName()) + "." + def(sig.getName()));
-		
 		SourceLocation so = jp.getSourceLocation();
-//		String file = def(so.getFileName());
-//		String line = def(Integer.toString(so.getLine()));
-//		as.push_back(Const.source_line, file+":"+line);
 		as.push_back(Const.source_line, def(so.getFileName()) + ":" + def(Integer.toString(so.getLine())));
 
 	}	

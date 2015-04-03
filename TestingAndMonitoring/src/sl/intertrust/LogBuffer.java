@@ -2,12 +2,11 @@ package sl.intertrust;
 
 import java.util.ArrayList;
 
-// Output buffer used for unit testing.
+// This is the output buffer used for unit testing.
 public class LogBuffer {
 	ArrayList<AttributeStore> logs = new ArrayList<AttributeStore>();
 
 	public void log(AttributeStore as) {
-		// as.push_front(Const.log_msg, msg);
 		logs.add(as);
 	}
 

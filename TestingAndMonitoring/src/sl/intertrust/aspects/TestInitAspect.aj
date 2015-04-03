@@ -1,7 +1,6 @@
 package sl.intertrust.aspects;
 
 import org.aspectj.lang.JoinPoint;
-
 import sl.intertrust.Log;
 import sl.intertrust.TestInit;
 import sl.intertrust.annotations.Testing;
