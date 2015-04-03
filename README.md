@@ -1,15 +1,16 @@
-Notification_Module
-===================
+Testing and Monitoring related modules
+======================================
 
 !! Complete refactoring - merged Notification and Test init modules into one package.
 
-Latest version: 
+Latest version:
+---------------
 
-Testing and Monitoring related modules 3.0.0
-Main module names (and packages) have been changed.
-Initialization changed, read docs.
-Direct logging is no more possible, only use annotations.
-Considerable improvements to stability of connection to MMT.
+* Testing and Monitoring related modules 3.0.0
+* Main module names (and packages) have been changed.
+* Initialization changed, read docs.
+* Direct logging is no more possible, only use annotations.
+* Considerable improvements to stability of connection to MMT.
 
 Previous versions:
 ------------------
